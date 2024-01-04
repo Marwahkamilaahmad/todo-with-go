@@ -14,3 +14,15 @@ type User struct {
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt `gorm:"index"`
 }
+
+
+type Todo struct{
+	Id        uint `json:"id" gorm:"primarykey"`
+	Judul   string `json:"judul"`
+	Hari   string `json:"hari"`
+	Waktu   string `json:"waktu"`
+	Keterangan   string `json:"keterangan"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt gorm.DeletedAt `gorm:"index"`
+}
