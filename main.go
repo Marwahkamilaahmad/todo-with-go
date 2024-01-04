@@ -1,28 +1,28 @@
 package main
 
 import (
+	"net/http"
 
+	"github.com/Marwahkamilaahmad/go-fiber-first.git/controllers"
 	"github.com/Marwahkamilaahmad/go-fiber-first.git/database"
-	// "github.com/Marwahkamilaahmad/go-fiber-first.git/entity/migration"
+	"github.com/Marwahkamilaahmad/go-fiber-first.git/entity/migration"
 	"github.com/Marwahkamilaahmad/go-fiber-first.git/routes"
 	"github.com/gofiber/fiber/v2"
+	// "github.com/gofiber/fiber/v2"
 )
 
 func main() {
 	database.ConnectDB()
-	// for migrate
-	// migration.RunMigrate()
+	migration.RunMigrate()
+
 	app := fiber.New()
+	app.Get("/", controllers.Welcome)
 
-	// app.Get("/", func(c *fiber.Ctx) error {
-	// 	return c.JSON(fiber.Map{
-	// 		"message" : "Hello world",
-	// 		"data" : "no data shown",
-	// 	})
-	// })
-	routes.RouterApp(app)
+	
+	routes.RouterApp()
 
-	app.Listen(":8000")
+	http.ListenAndServe(":8000", nil)
+	// app.Listen(":8000")
 
 	 
 }

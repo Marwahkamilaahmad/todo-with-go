@@ -1,13 +1,14 @@
 package routes
 
 import (
-	// "net/http"
 
+	"net/http"
 	"github.com/Marwahkamilaahmad/go-fiber-first.git/controllers"
-	"github.com/gofiber/fiber/v2"
 )
 
-func RouterApp(c *fiber.App){
-	c.Get("/showUser", controllers.UserControllerShow)
-	c.Get("/", controllers.Welcome)
+func RouterApp(){
+	http.HandleFunc("/todos", controllers.Index)
+	http.HandleFunc("/todos/add", controllers.Add)
+	http.HandleFunc("/todos/edit", controllers.Edit)
+	http.HandleFunc("/todos/delete", controllers.Delete)
 }

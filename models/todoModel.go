@@ -15,3 +15,26 @@ func GetAllTodos() (entity.Todo) {
 
 	return todos
 }
+
+func CreateTodos(entities entity.Todo)bool{
+	// result, err := database.DB.Exec(
+	// 	`INSERT INTO todos(judul, hari, waktu, keterangan, created_at, updated_at)
+	// 	VALUE(?,?,?,?,?,?)`,
+	// 	entities.Judul, entities.Hari, entities.Waktu, entities.CreatedAt, entities.UpdatedAt,
+	// )
+
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	result := database.DB.Create(&entities)
+	if result.Error != nil {
+		panic(result.Error)
+	}
+
+	return entities.Id > 0
+}
+
+func Edit(){
+	
+}

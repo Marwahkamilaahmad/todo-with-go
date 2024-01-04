@@ -7,9 +7,15 @@ import (
 )
 
 func RunMigrate() {
-	err := database.DB.AutoMigrate(&entity.User{})
-	if err != nil {
-		panic(err)
+	errUser := database.DB.AutoMigrate(&entity.User{})
+	if errUser != nil {
+		panic(errUser)
 	}
-	fmt.Println("success to migrate")
+
+	errTodo := database.DB.AutoMigrate(&entity.Todo{})
+	if errTodo != nil {
+		panic(errTodo)
+	}
+
+	fmt.Println("Success migrating User and Todo tables")
 }
