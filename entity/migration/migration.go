@@ -7,10 +7,10 @@ import (
 )
 
 func RunMigrate() {
-	errUser := database.DB.AutoMigrate(&entity.User{})
-	if errUser != nil {
-		panic(errUser)
-	}
+	// errUser := database.DB.AutoMigrate(&entity.User{})
+	// if errUser != nil {
+	// 	panic(errUser)
+	// }
 
 	errTodo := database.DB.AutoMigrate(&entity.Todo{})
 	if errTodo != nil {

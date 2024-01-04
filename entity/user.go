@@ -1,19 +1,18 @@
 package entity
 
 import (
-	"time"
-
-	"gorm.io/gorm"
+	// "time"
+	// "gorm.io/gorm"
 )
 
-type User struct {
-	Id        uint `json:"id" gorm:"primarykey"`
-	Name      string `json:"name"`
-	Email     string `json:"email"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
-}
+// type User struct {
+// 	Id        uint `json:"id" gorm:"primarykey"`
+// 	Name      string `json:"name"`
+// 	Email     string `json:"email"`
+// 	CreatedAt time.Time
+// 	UpdatedAt time.Time
+// 	DeletedAt gorm.DeletedAt `gorm:"index"`
+// }
 
 
 type Todo struct{
@@ -22,7 +21,6 @@ type Todo struct{
 	Hari   string `json:"hari"`
 	Waktu   string `json:"waktu"`
 	Keterangan   string `json:"keterangan"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
+	// CreatedAt   time.Time `gorm:"type:datetime"`
+	// UpdatedAt   time.Time `gorm:"type:datetime"`
 }

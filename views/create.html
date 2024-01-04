@@ -18,22 +18,22 @@
   </head>
   <body>
 <div class="container">
-<form>
+<form method="POST" action="/todos/add">
     <div class="form-group">
       <label for="Judul">Judul</label>
-      <input type="text" class="form-control" id="judul" >
+      <input type="text" class="form-control" id="judul" name="judul" >
     </div>
     <div class="form-group">
       <label for="Hari">Hari</label>
-      <input type="text" class="form-control" id="hari" >
+      <input type="text" class="form-control" id="hari" name="hari" >
     </div>
     <div class="form-group">
       <label for="Waktu">Waktu</label>
-      <input type="text" class="form-control" id="waktu" >
+      <input type="text" class="form-control" id="waktu" name="waktu" >
     </div>
     <div class="form-group">
       <label for="Keterangan">Keterangan</label>
-      <input type="text" class="form-control" id="keterangan" >
+      <input type="text" class="form-control" id="keterangan" name="keterangan" >
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

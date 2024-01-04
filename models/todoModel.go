@@ -6,8 +6,8 @@ import (
 	"github.com/Marwahkamilaahmad/go-fiber-first.git/entity"
 )
 
-func GetAllTodos() (entity.Todo) {
-	var todos entity.Todo
+func GetAllTodos() []entity.Todo {
+	var todos []entity.Todo
 	result := database.DB.Find(&todos)
 	if result.Error != nil {
 		panic(result.Error)
@@ -36,5 +36,5 @@ func CreateTodos(entities entity.Todo)bool{
 }
 
 func Edit(){
-	
+
 }

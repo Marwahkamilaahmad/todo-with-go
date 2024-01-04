@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 	"text/template"
-	"time"
+	// "time"
 
 	"github.com/Marwahkamilaahmad/go-fiber-first.git/entity"
 	// "github.com/Marwahkamilaahmad/go-fiber-first.git/entity/migration"
@@ -13,7 +13,7 @@ import (
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	todos := models.GetAllTodos()
-	data := map[string]any{
+	data := map[string]interface{}{
 		"todos" : todos,
 	}
 
@@ -24,7 +24,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	temp.Execute(w, data)
+	// temp.Execute(w, data)
+	err = temp.Execute(w, data)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 
 }
 
@@ -47,8 +51,8 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		todos.Hari = r.FormValue("hari")
 		todos.Waktu = r.FormValue("waktu")
 		todos.Keterangan = r.FormValue("keterangan")
-		todos.CreatedAt = time.Now()
-		todos.UpdatedAt = time.Now()
+		// todos.CreatedAt = time.Now()
+		// todos.UpdatedAt = time.Now()
 
 		if ok := models.CreateTodos(todos); !ok{
 			temp, _ := template.ParseFiles("views/create.html")
