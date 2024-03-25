@@ -10,6 +10,8 @@ var DB *gorm.DB
 
 func ConnectDB() {
 	const mySql = "root:@tcp(localhost:3306)/go_fiber_one"
+	// const mySql = "new_username:password@tcp(db_host:3306)/go_fiber_one";
+
 	DSN := mySql
 
 	database, err := gorm.Open(mysql.Open(DSN), &gorm.Config{})
